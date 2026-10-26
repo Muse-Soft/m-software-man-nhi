@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mẫn Nhi — Portfolio nhân vật AI</title>
+<meta name="description" content="Portfolio mẫu của nhân vật AI Mẫn Nhi: giới thiệu, video đã làm, phong cách và liên hệ hợp tác. Video, ảnh và liên hệ thật đang chờ bổ sung.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FDF8F3; --bg2:#F5E9E0; --card:#FFFFFF;
+    --text:#2B211E; --muted:#7A6A63;
+    --accent:#C2452D; --accent2:#E8B4A0;
+    --radius:20px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:"Manrope",system-ui,sans-serif;font-size:17px;line-height:1.6}
+  a{color:var(--accent);text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  section{padding:80px 0 0}
+  section:last-of-type{padding-bottom:80px}
+
+  /* Điều hướng dính đầu trang */
+  header{position:sticky;top:0;z-index:10;background:rgba(253,248,243,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--bg2)}
+  .nav{display:flex;align-items:center;gap:24px;padding:16px 0}
+  .brand{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:700;color:var(--text);margin-right:auto}
+  .nav-links{display:flex;gap:24px}
+  .nav-links a{color:var(--text);font-weight:600}
+  .btn{display:inline-block;padding:12px 24px;border-radius:999px;font-weight:700;border:2px solid var(--accent);text-align:center}
+  .btn-solid{background:var(--accent);color:#fff}
+  .btn-outline{color:var(--accent);background:transparent}
+  .btn-nav{padding:9px 20px}
+
+  /* Hero bento */
+  .hero-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
+  .arch-wrap{position:relative;max-width:440px}
+  .arch-wrap::before{content:"";position:absolute;inset:0;transform:translate(12px,12px);background:var(--bg2);border-radius:50% 50% 20px 20px}
+  .arch{position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border:2px solid var(--accent);border-radius:50% 50% 20px 20px}
+  .caption{font-size:14px;color:var(--muted);margin-top:12px}
+  .eyebrow{font-size:13px;letter-spacing:2px;color:var(--accent);font-weight:700;margin:0 0 8px}
+  h1{font-family:"Cormorant Garamond",serif;font-size:56px;line-height:1.1;margin:0 0 16px}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+  .stat{background:var(--card);border:1px solid var(--bg2);border-radius:var(--radius);padding:16px}
+  .stat strong{font-family:"Cormorant Garamond",serif;font-size:32px;display:block;line-height:1.1}
+  .stat span{font-size:14px;color:var(--muted)}
+
+  /* Tiêu đề khối */
+  h2{font-family:"Cormorant Garamond",serif;font-size:32px;margin:0 0 8px}
+  .section-head{margin-bottom:32px}
+  .rule{width:56px;height:4px;background:var(--accent);border-radius:4px}
+
+  /* Lưới video masonry */
+  .masonry{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .video-card{background:var(--card);border:1px solid var(--bg2);border-radius:var(--radius);overflow:hidden}
+  .video-card.featured{grid-column:span 2}
+  .thumb{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+  .video-body{padding:16px 18px 18px}
+  .video-body h3{font-family:"Cormorant Garamond",serif;font-size:24px;margin:0 0 4px;line-height:1.25}
+  .video-body p{margin:0;color:var(--muted);font-size:15px}
+  .tag{display:inline-block;background:var(--bg2);color:var(--accent);font-size:13px;font-weight:700;padding:2px 10px;border-radius:999px;margin-bottom:8px}
+
+  /* Phong cách */
+  .style-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .style-card{background:var(--card);border:1px solid var(--bg2);border-radius:var(--radius);padding:24px}
+  .style-card h3{font-family:"Cormorant Garamond",serif;font-size:26px;margin:0 0 8px}
+  .style-card p,.style-card li{color:var(--muted)}
+  .style-card ul{margin:8px 0 0;padding-left:20px}
+  .quote{background:var(--bg2);border-radius:var(--radius);padding:36px;margin-top:24px;text-align:center}
+  .quote blockquote{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:24px;margin:0 0 8px;line-height:1.4}
+  .quote p{margin:0;color:var(--muted);font-size:14px}
+
+  /* Liên hệ */
+  .contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:start}
+  form{background:var(--card);border:1px solid var(--bg2);border-radius:var(--radius);padding:28px}
+  label{display:block;font-weight:700;margin:16px 0 6px}
+  label:first-child{margin-top:0}
+  input,select,textarea{width:100%;padding:12px 14px;border:1px solid var(--bg2);border-radius:12px;font:inherit;background:var(--bg);color:var(--text)}
+  textarea{min-height:120px;resize:vertical}
+  form .btn{margin-top:20px;cursor:pointer;font:inherit}
+  .demo-note{display:none;margin-top:16px;background:var(--bg2);border-radius:12px;padding:14px 16px;font-weight:600}
+  .note-card{background:var(--bg2);border-radius:var(--radius);padding:28px}
+  .note-card h3{font-family:"Cormorant Garamond",serif;font-size:26px;margin:0 0 8px}
+  .note-card p{color:var(--muted)}
+
+  footer{border-top:1px solid var(--bg2);padding:32px 0;text-align:center;color:var(--muted)}
+  footer strong{font-family:"Cormorant Garamond",serif;font-size:22px;color:var(--text)}
+
+  /* Tablet */
+  @media (max-width:1023px){
+    .masonry{grid-template-columns:repeat(2,1fr)}
+    .video-card.featured{grid-column:span 2}
+    .hero-grid{gap:24px}
+    .contact-grid{grid-template-columns:1fr}
+  }
+  /* Mobile */
+  @media (max-width:767px){
+    body{font-size:16px}
+    section{padding-top:56px}
+    .nav-links{display:none}
+    .hero-grid{grid-template-columns:1fr}
+    .arch-wrap{max-width:320px;margin:0 auto}
+    .arch-wrap{order:-1}
+    h1{font-size:36px}
+    h2{font-size:26px}
+    .hero-actions .btn{width:100%}
+    .stats{grid-template-columns:1fr}
+    .masonry,.style-grid{grid-template-columns:1fr}
+    .video-card.featured{grid-column:span 1}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">Mẫn Nhi</a>
+    <nav class="nav-links" aria-label="Điều hướng chính">
+      <a href="#gioi-thieu">Giới thiệu</a>
+      <a href="#video">Video</a>
+      <a href="#phong-cach">Phong cách</a>
+      <a href="#lien-he">Liên hệ</a>
+    </nav>
+    <a class="btn btn-solid btn-nav" href="#lien-he">Hợp tác</a>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+  <!-- Hero -->
+  <section id="gioi-thieu" aria-label="Giới thiệu nhân vật">
+    <div class="hero-grid">
+      <div class="arch-wrap">
+        <img class="arch" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&amp;w=880&amp;auto=format&amp;fit=crop" alt="Chân dung mẫu của nhân vật AI Mẫn Nhi">
+        <p class="caption">(ảnh mẫu) — Chân dung mẫu, ảnh nhân vật thật: [CẦN BỔ SUNG]</p>
+      </div>
+      <div>
+        <p class="eyebrow">NHÂN VẬT AI</p>
+        <h1>Mẫn Nhi</h1>
+        <p>Xin chào, mình là Mẫn Nhi — một nhân vật AI kể chuyện bằng video ngắn, nhẹ nhàng và gần gũi như một người bạn. <em>(Nội dung mẫu — câu giới thiệu thật: [CẦN BỔ SUNG])</em></p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#video">Xem video</a>
+          <a class="btn btn-outline" href="#lien-he">Liên hệ hợp tác</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>24</strong><span>video đã làm (số mẫu)</span></div>
+          <div class="stat"><strong>6</strong><span>chủ đề (số mẫu)</span></div>
+          <div class="stat"><strong>120K</strong><span>lượt xem (số mẫu)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video đã làm -->
+  <section id="video" aria-label="Video đã làm">
+    <div class="section-head">
+      <h2>Video đã làm</h2>
+      <div class="rule"></div>
+      <p style="color:var(--muted)">Tất cả thumbnail và tiêu đề dưới đây đều là mẫu. Video thật: [CẦN BỔ SUNG]</p>
+    </div>
+    <div class="masonry">
+      <article class="video-card featured">
+        <img class="thumb" src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Thumbnail video mẫu nổi bật">
+        <div class="video-body">
+          <span class="tag">(video mẫu) · Nổi bật</span>
+          <h3>Một buổi chiều kể chuyện bằng âm nhạc</h3>
+          <p>3 phút mẫu · Chủ đề mẫu: âm nhạc</p>
+        </div>
+      </article>
+      <article class="video-card">
+        <img class="thumb" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Thumbnail video mẫu" loading="lazy">
+        <div class="video-body">
+          <span class="tag">(video mẫu)</span>
+          <h3>Bài hát mẫu cho ngày mưa</h3>
+          <p>2 phút mẫu · Chủ đề mẫu: âm nhạc</p>
+        </div>
+      </article>
+      <article class="video-card">
+        <img class="thumb" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Thumbnail video mẫu" loading="lazy">
+        <div class="video-body">
+          <span class="tag">(video mẫu)</span>
+          <h3>Hậu trường một buổi quay mẫu</h3>
+          <p>4 phút mẫu · Chủ đề mẫu: hậu trường</p>
+        </div>
+      </article>
+      <article class="video-card">
+        <img class="thumb" src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Thumbnail video mẫu" loading="lazy">
+        <div class="video-body">
+          <span class="tag">(video mẫu)</span>
+          <h3>Cách một video ngắn ra đời</h3>
+          <p>5 phút mẫu · Chủ đề mẫu: sáng tạo</p>
+        </div>
+      </article>
+      <article class="video-card">
+        <img class="thumb" src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Thumbnail video mẫu" loading="lazy">
+        <div class="video-body">
+          <span class="tag">(video mẫu)</span>
+          <h3>Góc làm nhạc buổi tối</h3>
+          <p>2 phút mẫu · Chủ đề mẫu: âm nhạc</p>
+        </div>
+      </article>
+      <article class="video-card">
+        <img class="thumb" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Thumbnail video mẫu" loading="lazy">
+        <div class="video-body">
+          <span class="tag">(video mẫu)</span>
+          <h3>Chân dung mẫu: một ngày của Mẫn Nhi</h3>
+          <p>3 phút mẫu · Chủ đề mẫu: đời thường</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Phong cách -->
+  <section id="phong-cach" aria-label="Phong cách">
+    <div class="section-head">
+      <h2>Phong cách</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="style-grid">
+      <article class="style-card">
+        <h3>Điểm nhận diện</h3>
+        <p><em>(Mô tả mẫu)</em> Gương mặt hiền, nụ cười nhẹ và khung hình vòm ấm áp — nhìn một lần là nhận ra Mẫn Nhi ngay. Điểm nhận diện thật: [CẦN BỔ SUNG]</p>
+      </article>
+      <article class="style-card">
+        <h3>Tông cảm xúc</h3>
+        <p><em>(Mô tả mẫu)</em> Ấm áp, dịu dàng và tích cực — như nắng chiều rót qua khung cửa sổ, không ồn ào, không vội vã.</p>
+      </article>
+      <article class="style-card">
+        <h3>Chủ đề thường làm</h3>
+        <ul>
+          <li>Âm nhạc (mẫu)</li>
+          <li>Kể chuyện đời thường (mẫu)</li>
+          <li>Hậu trường sáng tạo (mẫu)</li>
+          <li>Cảm hứng sống chậm (mẫu)</li>
+          <li>Giao lưu cùng khán giả (mẫu)</li>
+        </ul>
+      </article>
+    </div>
+    <div class="quote">
+      <blockquote>“Mỗi video là một câu chuyện nhỏ, kể chậm rãi để người xem kịp mỉm cười.”</blockquote>
+      <p>(Câu nói mẫu — câu đại diện thật: [CẦN BỔ SUNG])</p>
+    </div>
+  </section>
+
+  <!-- Liên hệ hợp tác -->
+  <section id="lien-he" aria-label="Liên hệ hợp tác">
+    <div class="section-head">
+      <h2>Liên hệ hợp tác</h2>
+      <div class="rule"></div>
+      <p style="color:var(--muted)">Form dưới đây chỉ là giao diện demo — lời nhắn sẽ không được gửi đi thật.</p>
+    </div>
+    <div class="contact-grid">
+      <form id="contact-form">
+        <label for="ten">Tên của bạn</label>
+        <input id="ten" name="ten" type="text" placeholder="Ví dụ: An (mẫu)" required>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="ban@vi-du-mau.com" required>
+        <label for="loai">Loại hợp tác</label>
+        <select id="loai" name="loai">
+          <option>Quảng cáo</option>
+          <option>Xuất hiện chung</option>
+          <option>Khác</option>
+        </select>
+        <label for="loi-nhan">Lời nhắn</label>
+        <textarea id="loi-nhan" name="loi-nhan" placeholder="Chia sẻ ý tưởng hợp tác của bạn… (mẫu)" required></textarea>
+        <button class="btn btn-solid" type="submit">Gửi lời nhắn</button>
+        <p class="demo-note" id="demo-note" role="status">Đây là form demo, lời nhắn chưa được gửi đi.</p>
+      </form>
+      <aside class="note-card">
+        <h3>Ghi chú liên hệ</h3>
+        <p>Thông tin liên hệ thật: [CẦN BỔ SUNG]</p>
+        <p>Email mẫu: <a href="mailto:man-nhi@vi-du-mau.com">man-nhi@vi-du-mau.com</a> (email mẫu)<br>
+        Mạng xã hội mẫu: @mannhi.mau (tài khoản mẫu)</p>
+        <p>Khi có thông tin thật, các dòng mẫu trên sẽ được thay bằng thông tin chính thức.</p>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>Mẫn Nhi</strong>
+    <p>Trang portfolio mẫu — video, ảnh và liên hệ thật đang chờ bổ sung</p>
+    <p><a href="#top">Về đầu trang ↑</a></p>
+  </div>
+</footer>
+
+<script>
+  // Form CHỈ giao diện: không fetch, không action gửi thật.
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('demo-note').style.display = 'block';
+  });
+</script>
+</body>
+</html>
